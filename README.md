@@ -1,25 +1,25 @@
 # Khoa
 
-A lightweight, mobile-friendly market calculator for converting rupees and grams at a custom price per kilogram.
+A simple calculator for converting money into weight, or weight into price, using the shop's rate per kilogram.
+
+## Why Khoa?
+
+Quickly calculate how much khoa you can buy for your money—or how much a required quantity will cost. No mental calculations needed.
 
 ## Features
-- English / Hindi interface switch
-- Accepts English and Hindi numerals; numeric-only inputs
-- Light and dark themes (theme preference is saved in the browser)
-- Switch between rupees → grams and grams → rupees
-- Editable price per kilogram and base weight
-- Quick amount shortcuts and live reference prices
-- Hindi market vocabulary guide for English speakers
-- Responsive layout for phones, tablets, and desktop
 
-## Run locally
-Open `index.html` in any modern browser. No build tools, dependencies, or server are required.
+- English and Hindi language options
+- Supports English and Hindi numerals
+- Convert rupees to grams or grams to rupees
+- Set and save the price per kilogram
+- Quick quantity shortcuts
+- Hindi market-quantity reference
+- Light and dark themes
+- Copy results and reset the calculator
+- Works on mobile and desktop
 
-## Formula
-- Grams = Rupees × Base weight (grams) ÷ Price per kg
-- Rupees = Grams × Price per kg ÷ Base weight (grams)
+## Use
 
-The default rate is ₹360 per 1,000 grams. Change it to match the shop's current rate.
+Open the website: https://khoa-five.vercel.app
 
-## Deploy
-Connect this repository to Vercel. Every push to the production branch will deploy the static site automatically.
+Or download the repository and open `index.html` in a browser. No installation required.
