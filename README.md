@@ -4,7 +4,7 @@ A simple calculator for converting money into weight, or weight into price, usin
 
 ## Why Khoa Calculator?
 
-Quickly calculate how much khoa you can buy for your money—or how much a required quantity will cost. No mental calculations needed.
+Quickly calculate how much khoa you can buy for your money or how much a required quantity will cost. No mental calculations needed.
 
 ## Features
 
