@@ -68,6 +68,7 @@ function render(){const t=copy[state.lang];document.documentElement.lang=state.l
 function update(){const t=copy[state.lang],a=parse('amount'),r=parse('rate'),b=1000;const valid=Number.isFinite(a)&&a>=0&&Number.isFinite(r)&&r>0&&Number.isFinite(b)&&b>0;const result=valid?(state.mode==='money'?a*b/r:a*r/b):NaN;$('resultValue').textContent=valid?(state.mode==='money'?digits(result)+' g':fmtMoney(result)):'—';$('resultSub').textContent=valid?(state.mode==='money'?t.moneySub(digits(a),digits(r)):t.weightSub(digits(a),digits(r))):t.invalid;}
 function setMode(mode){state.mode=mode;save('khoa-mode',mode);render();}
 $('moneyMode').addEventListener('click',()=>setMode('money'));$('weightMode').addEventListener('click',()=>setMode('weight'));
+document.querySelector('.switches').addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();const next=state.mode==='money'?'weight':'money';setMode(next);$(next==='money'?'moneyMode':'weightMode').focus();}});
 $('langBtn').addEventListener('click',()=>{state.lang=state.lang==='en'?'hi':'en';save('khoa-lang',state.lang);render();});
 $('themeBtn').addEventListener('click',()=>{state.theme=state.theme==='light'?'dark':'light';save('khoa-theme',state.theme);render();});
 $('guideBtn').addEventListener('click',()=>{$('guide').classList.toggle('open');$('guideBtn').setAttribute('aria-expanded',$('guide').classList.contains('open'));});
@@ -77,7 +78,7 @@ $('amount').addEventListener('keydown',e=>{if(e.key==='Enter')e.target.blur();})
 if(read('khoa-rate',''))$('rate').value=read('khoa-rate','360');
 $('clearBtn').addEventListener('click',()=>{$('amount').value='';$('copyStatus').textContent='';update();$('amount').focus();});
 $('resetBtn').addEventListener('click',()=>{state.mode='money';save('khoa-mode','money');$('amount').value='100';$('rate').value='360';save('khoa-rate','360');$('copyStatus').textContent='';render();$('amount').focus();});
-$('copyBtn').addEventListener('click',async()=>{const value=$('resultValue').textContent;if(value==='—')return;const text=value+'\\n'+$('resultSub').textContent;try{if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(text);else{const temp=document.createElement('textarea');temp.value=text;temp.style.position='fixed';temp.style.opacity='0';document.body.appendChild(temp);temp.select();const ok=document.execCommand('copy');temp.remove();if(!ok)throw new Error('copy failed');}$('copyStatus').textContent=copy[state.lang].copied;}catch{$('copyStatus').textContent=copy[state.lang].copyError;}});
+$('copyBtn').addEventListener('click',async()=>{const value=$('resultValue').textContent;if(value==='—')return;const text=value+'\n'+$('resultSub').textContent;try{if(navigator.clipboard&&window.isSecureContext)await navigator.clipboard.writeText(text);else{const temp=document.createElement('textarea');temp.value=text;temp.style.position='fixed';temp.style.opacity='0';document.body.appendChild(temp);temp.select();const ok=document.execCommand('copy');temp.remove();if(!ok)throw new Error('copy failed');}$('copyStatus').textContent=copy[state.lang].copied;}catch{$('copyStatus').textContent=copy[state.lang].copyError;}});
 render();$('amount').value='100';update();
 })();
 </script>
