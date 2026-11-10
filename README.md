@@ -1,8 +1,8 @@
-# Khoa
+# Khoa Calculator
 
 A simple calculator for converting money into weight, or weight into price, using the shop's rate per kilogram.
 
-## Why Khoa?
+## Why Khoa Calculator?
 
 Quickly calculate how much khoa you can buy for your money—or how much a required quantity will cost. No mental calculations needed.
 
@@ -17,9 +17,3 @@ Quickly calculate how much khoa you can buy for your money—or how much a requi
 - Light and dark themes
 - Copy results and reset the calculator
 - Works on mobile and desktop
-
-## Use
-
-Open the website: https://khoa-five.vercel.app
-
-Or download the repository and open `index.html` in a browser. No installation required.
